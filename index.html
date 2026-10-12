@@ -1,33 +1,212 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ihor Honcharuk | IT Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0b1220;
-      color: #f8fafc;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    main { padding: 24px; }
-    h1 { font-size: clamp(36px, 6vw, 64px); margin-bottom: 16px; }
-    p { color: #94a3b8; font-size: 20px; line-height: 1.6; }
-    a { color: #60a5fa; }
-  </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#0b1220" name="theme-color"/>
+<meta content="Ihor Honcharuk — enterprise IT, DevOps and CI/CD, ETL development, data engineering, Linux and production reliability." name="description"/>
+<meta content="Ihor Honcharuk | Enterprise IT Portfolio" property="og:title"/>
+<meta content="Enterprise IT · DevOps · ETL Development · Data Engineering · SRE" property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://ihorhoncharuk.com/" property="og:url"/>
+<link href="https://ihorhoncharuk.com/" rel="canonical"/>
+<title>Ihor Honcharuk | Enterprise IT Portfolio</title>
+<style>
+    :root { color-scheme: dark; --bg:#090f1c; --surface:#111b2d; --surface2:#17233a; --line:#29364d; --ink:#f1f5fa; --sub:#adbacd; --muted:#8291a7; --accent:#61d9c6; --accent2:#81a9ff; --max:1130px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:88px; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    body:before { content:""; position:absolute; top:0;left:0;right:0;height:730px;pointer-events:none; background:radial-gradient(ellipse 60% 63% at 76% 8%,rgba(75,118,200,.16),transparent 80%),radial-gradient(ellipse 35% 40% at 8% 15%,rgba(52,181,162,.09),transparent 75%); }
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--accent); }
+    a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid var(--accent);outline-offset:5px; }
+    .shell { max-width:var(--max);padding:0 28px;margin:0 auto; }
+    .skip { position:absolute;top:-60px;left:15px;background:white;color:#111;padding:9px;z-index:20; }
+    .skip:focus {top:8px}
+    header { position:sticky;top:0;z-index:10;backdrop-filter:blur(17px);background:rgba(9,15,28,.88);border-bottom:1px solid rgba(113,143,178,.16); }
+    .header-row { display:flex;min-height:76px;align-items:center;justify-content:space-between;gap:25px; }
+    .brand { display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.035em;font-size:18px;white-space:nowrap; }
+    .brand-mark { width:36px;height:36px;display:grid;place-items:center;background:rgba(97,217,198,.14);border:1px solid rgba(97,217,198,.38);border-radius:11px;color:var(--accent);font-size:13px;letter-spacing:0; }
+    nav { display:flex;align-items:center;gap:23px; }
+    nav a { color:#bfcbdb;font-size:13px;font-weight:600;transition:color .2s; }
+    .nav-cta { padding:10px 16px;background:rgba(97,217,198,.12);color:var(--accent);border:1px solid rgba(97,217,198,.33);border-radius:10px; }
+    main { position:relative; }
+    .hero { padding:112px 0 105px;display:grid;grid-template-columns:1.45fr .8fr;align-items:center;gap:65px; }
+    .eyebrow { display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase; }
+    .eyebrow:before { content:"";height:7px;width:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 17px var(--accent); }
+    h1,h2,h3,p { margin-top:0; }
+    h1 {font-size:clamp(49px,7vw,82px);line-height:1.045;letter-spacing:-.065em;margin:22px 0;}
+    h1 span {color:var(--accent)}
+    .hero-title {font-size:clamp(19px,2.15vw,26px);font-weight:650;letter-spacing:-.025em;line-height:1.37;max-width:640px;margin-bottom:18px; }
+    .intro {color:var(--sub);font-size:16px;max-width:655px;margin:0 0 30px; }
+    .actions {display:flex;gap:12px;flex-wrap:wrap;}
+    .btn {display:inline-flex;align-items:center;justify-content:center;gap:11px;padding:12px 19px;border:1px solid var(--line);border-radius:11px;font-weight:700;font-size:14px;transition:transform .2s,background .2s;}
+    .btn:hover { transform:translateY(-2px); }
+    .btn-main {background:var(--accent);color:#071820;border-color:var(--accent)}
+    .btn-main:hover {color:#071820;background:#88e9da}
+    .btn-alt {background:rgba(255,255,255,.03)}
+    .hero-panel {padding:26px;border:1px solid var(--line);background:linear-gradient(155deg,rgba(25,43,65,.95),rgba(14,24,39,.9));border-radius:22px;box-shadow:0 24px 65px rgba(0,0,0,.23); }
+    .panel-title {font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:750;margin-bottom:20px;}
+    .panel-item {padding:16px 0;border-top:1px solid var(--line)}
+    .panel-item strong {display:block;font-size:20px;letter-spacing:-.03em;color:#fff}
+    .panel-item span {font-size:13px;color:var(--sub)}
+    .panel-foot {margin-top:18px;color:var(--accent);font-size:12px;font-weight:650;}
+    section {padding:88px 0;border-top:1px solid rgba(120,145,180,.14); }
+    .section-kicker {font-size:12px;letter-spacing:.15em;color:var(--accent);font-weight:800;text-transform:uppercase;margin-bottom:8px;}
+    h2 {font-size:clamp(30px,4.3vw,47px);line-height:1.2;letter-spacing:-.048em;margin-bottom:18px;}
+    .section-lead {color:var(--sub);max-width:760px;font-size:17px;margin-bottom:35px;}
+    .about-grid {display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:start;}
+    .prose {color:var(--sub)} .prose p{margin-bottom:18px}
+    .mini-grid {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .mini {padding:21px;border-radius:15px;background:var(--surface);border:1px solid var(--line)}
+    .mini-link{display:block;cursor:pointer;transition:transform .18s,border-color .18s,background .18s}.mini-link:hover{transform:translateY(-3px);border-color:var(--accent);background:var(--surface2);color:var(--ink)}.mini-link b span{float:right;color:var(--accent)}.mini-link:focus-visible{outline:3px solid var(--accent);outline-offset:4px}.mini b {display:block;font-size:15px;color:var(--ink);margin-bottom:5px}.mini p {font-size:13px;color:var(--sub);margin:0}
+    .skill-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+    .tile {background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:23px;}
+    .tile h3 {font-size:17px;letter-spacing:-.02em;margin-bottom:12px}
+    .tile p {color:var(--sub);font-size:13px;margin:0 0 15px}
+    .tags {display:flex;flex-wrap:wrap;gap:7px}
+    .tag {font-size:11px;line-height:1.35;font-weight:650;color:#d3deef;padding:6px 9px;background:#1c2a42;border:1px solid #30425e;border-radius:7px}
+    .notice {border-left:3px solid var(--accent);background:rgba(97,217,198,.055);color:var(--sub);font-size:13px;padding:14px 19px;margin-top:20px;border-radius:0 10px 10px 0;}
+    .experience {display:grid;grid-template-columns:220px 1fr;gap:29px;padding:28px 0;border-top:1px solid var(--line)}
+    .experience:first-of-type {border-top:0}
+    .exp-meta {color:var(--muted);font-size:13px}
+    .exp-meta strong{font-size:16px;color:var(--ink);display:block;margin-bottom:5px}
+    .experience h3 {font-size:20px;letter-spacing:-.025em;margin-bottom:7px}
+    .experience p {color:var(--sub);font-size:14px;margin-bottom:13px}
+    .experience ul {margin:9px 0 15px;padding-left:19px;color:var(--sub);font-size:14px}
+    .experience li {margin-bottom:7px}
+    .expand {background:rgba(22,36,57,.75);border:1px solid var(--line);border-radius:12px;padding:0 16px;margin-top:14px}
+    .expand summary{cursor:pointer;padding:12px 2px;color:var(--accent);font-weight:750;font-size:13px}
+    .expand[open] {padding-bottom:12px}
+    .case-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+    .case {border:1px solid var(--line);background:linear-gradient(145deg,#15243a,#101b2b);border-radius:18px;padding:26px}
+    .case small {color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .case h3 {font-size:21px;line-height:1.3;letter-spacing:-.035em;margin:13px 0 12px}
+    .case p {color:var(--sub);font-size:14px;margin-bottom:17px}
+    .case .context {color:#c4d1df;font-size:12px;border-top:1px solid var(--line);padding-top:13px;margin-top:15px}
+    .learning-grid {display:grid;grid-template-columns:1fr 1fr;gap:17px}
+    .contact-wrap {background:linear-gradient(120deg,rgba(39,94,104,.3),rgba(26,45,77,.65));padding:43px;border:1px solid #34626b;border-radius:22px;display:flex;align-items:center;justify-content:space-between;gap:26px}
+    .contact-wrap h2 {margin-bottom:10px}.contact-wrap p {color:var(--sub);margin:0;max-width:600px}
+    .contact-wrap {display:block}
+    .contact-header {max-width:790px;margin-bottom:26px}
+    .contact-wrap .contact-header p {max-width:740px}
+    .contact-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:24px}
+    .contact-item {display:flex;gap:13px;align-items:center;min-width:0;padding:17px;background:rgba(9,15,28,.4);border:1px solid rgba(150,191,208,.23);border-radius:14px;transition:border-color .2s,transform .2s}
+    a.contact-item:hover {border-color:var(--accent);transform:translateY(-2px)}
+    .contact-symbol {flex:0 0 37px;width:37px;height:37px;border-radius:11px;background:rgba(97,217,198,.12);display:grid;place-items:center;font-size:17px;font-weight:800;color:var(--accent)}
+    .contact-label {display:block;font-size:12px;color:var(--muted);font-weight:700}
+    .contact-value {display:block;font-size:14px;font-weight:650;overflow-wrap:anywhere}
+    .messenger-title {font-size:15px;margin:26px 0 11px;font-weight:750}
+    .messenger-list {display:flex;gap:10px;flex-wrap:wrap}
+    .messenger-btn {display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(150,191,208,.28);border-radius:12px;padding:11px 16px;font-size:14px;font-weight:750;background:rgba(9,15,28,.45)}
+    a.messenger-btn:hover {border-color:var(--accent);background:rgba(97,217,198,.11)}
+    .messenger-btn .contact-symbol {width:29px;height:29px;flex-basis:29px;border-radius:9px;font-size:12px}
+    .messenger-btn.pending {opacity:.55;cursor:not-allowed}
+    .brand-icon {display:inline-grid;place-items:center;width:36px;height:36px;border-radius:11px;flex:none}
+    .brand-icon img{width:22px;height:22px;display:block}
+    .brand-whatsapp{background:#25D366}.brand-viber{background:#7360F2}.brand-messenger{background:#168AFF}.brand-telegram{background:#26A5E4}.brand-signal{background:#3A76F0}
+    .cv-icon {width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center}
+    .cv-icon img{width:42px;height:42px;display:block}
+    @media(max-width:500px){.messenger-btn{flex:1 1 150px;justify-content:flex-start;padding:10px 12px}}
+    .contact-note {font-size:12px;color:var(--muted);margin-top:13px!important}
+    @media(max-width:720px){.contact-grid{grid-template-columns:1fr}.contact-wrap{padding:27px}.contact-item{padding:14px}}
+    footer {padding:30px 0 45px;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}
+    .foot-row {display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot-row a{color:var(--sub)}
+    @media(max-width:940px){nav {gap:11px;flex-wrap:wrap;justify-content:flex-end}nav a{font-size:12px}.hero{gap:26px}.skill-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:720px){.shell{padding:0 19px}.header-row{align-items:flex-start;padding:15px 0;flex-direction:column;gap:10px}nav{justify-content:flex-start;gap:12px 17px}nav a{font-size:12px}.hero{padding:65px 0;grid-template-columns:1fr;gap:28px}h1{font-size:55px}.hero-panel{padding:18px}.panel-item{display:inline-block;min-width:47%;vertical-align:top}.about-grid,.skill-grid,.case-grid,.learning-grid{grid-template-columns:1fr}.experience{grid-template-columns:1fr;gap:9px}.mini-grid{grid-template-columns:1fr 1fr}section{padding:62px 0}.contact-wrap{padding:27px;flex-direction:column;align-items:flex-start}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+  .skill-link{display:inline-flex;align-items:center;transition:background .15s,border-color .15s}.skill-link:hover{background:#294463;border-color:var(--accent);color:#fff}.area-link{display:inline-block;margin-top:18px;color:var(--accent);font-size:13px;font-weight:750}.experience-link{display:inline-flex;margin-top:10px;font-weight:750;color:var(--accent);font-size:14px}.breadcrumbs{font-size:13px;color:var(--sub);margin:36px 0 12px}.detail-page{padding:28px 0 90px}.detail-panel{border:1px solid var(--line);background:var(--surface);padding:25px;border-radius:16px;margin:16px 0;scroll-margin-top:105px}.detail-panel h2{font-size:25px;margin-bottom:12px}.detail-panel p{color:var(--sub);margin:0 0 10px}.detail-note{color:var(--accent);font-size:13px;font-weight:650}.detail-intro{max-width:780px;color:var(--sub);font-size:17px}.detail-page h1{font-size:clamp(37px,5vw,59px)}</style>
 </head>
 <body>
-  <main>
-    <h1>Ihor Honcharuk</h1>
-    <p>Enterprise IT | Linux | Infrastructure | Cloud-Native Technologies</p>
-    <p>Professional IT Portfolio — Coming Soon</p>
-    <a href="https://github.com/ihorhoncharuk">GitHub Profile</a>
-  </main>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+<div class="shell header-row">
+<a aria-label="Ihor Honcharuk home" class="brand" href="#home"><span class="brand-mark">IH</span> IHOR HONCHARUK</a>
+<nav aria-label="Main navigation">
+<a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#learning">Learning</a><a class="nav-cta" href="#contact">Contact ↗</a>
+</nav>
+</div>
+</header>
+<main id="main">
+<div class="shell" id="home">
+<div class="hero">
+<div>
+<div class="eyebrow">Enterprise IT · Data Platforms · Production Systems</div>
+<h1>Ihor<br/><span>Honcharuk.</span></h1>
+<p class="hero-title">Senior Enterprise IT Specialist<br/>Data Engineering · ETL Development · DevOps · Application Engineering</p>
+<p class="intro">20+ years across banking, telecommunications and IT systems integration. Hands-on experience across the full engineering lifecycle: requirements analysis, platform setup, ETL and BI development, testing, controlled releases, production troubleshooting and reliability.</p>
+<div class="actions"><a class="btn btn-main" href="#experience">Explore experience <span aria-hidden="true">↗</span></a><a class="btn btn-alt" href="https://www.linkedin.com/in/ihor-honcharuk-6240036/" rel="noopener noreferrer" target="_blank">LinkedIn profile <span aria-hidden="true">↗</span></a></div>
+</div>
+<aside aria-label="Professional profile at a glance" class="hero-panel">
+<div class="panel-title">Professional snapshot</div>
+<div class="panel-item"><strong>20+ years</strong><span>Enterprise IT experience</span></div>
+<div class="panel-item"><strong>Banking · Telecom · IT Integration</strong><span>Enterprise customers, delivery partners and integrators</span></div>
+<div class="panel-item"><strong>Gdańsk, Poland</strong><span>Remote-first · B2B opportunities</span></div>
+<div class="panel-foot">Engineering • DevOps • Operations • SRE</div>
+</aside>
+</div>
+</div>
+<section id="about"><div class="shell"><div class="section-kicker">01 / About me</div><h2>Full-cycle engineering —<br/>from requirements to reliable production.</h2>
+<div class="about-grid"><div class="prose"><p>I work across the entire enterprise application delivery lifecycle: understanding business requirements and technical specifications, analyzing data flows, planning ETL workflows and reporting solutions, and preparing the underlying application platforms.</p><p>My hands-on work has covered configuration and development, source and repository changes, data validation and testing, pre-production deployments, production releases, post-deployment verification, monitoring, incident and problem investigation, and controlled data reprocessing when needed.</p><p>I have also configured clustered platforms and high availability, contributed to disaster recovery plans and failover tests, and produced application runbooks, operational guidance and knowledge-transfer materials. This background supports production reliability and Site Reliability Engineering (SRE) practices.</p><p>Within containerized application delivery I have worked with Mirantis Kubernetes Engine, Kubernetes YAML and Secrets, and Bamboo/Artifactory release workflows. My focus here is hands-on production systems, not unverified public-cloud experience.</p></div>
+<div class="mini-grid"><a class="mini mini-link" href="skills/data-platforms.html" aria-label="Explore data platforms experience"><b>Data platforms <span aria-hidden="true">↗</span></b><p>BI, ETL, DWH and SQL</p></a><a class="mini mini-link" href="skills/production-operations.html" aria-label="Explore production operations experience"><b>Production operations <span aria-hidden="true">↗</span></b><p>Troubleshooting, monitoring, Disaster Recovery plans, failover tests, runbooks and releases</p></a><a class="mini mini-link" href="skills/infrastructure.html" aria-label="Explore infrastructure experience"><b>Infrastructure <span aria-hidden="true">↗</span></b><p>RHEL, high availability, clustering, platform setup and recovery</p></a><a class="mini mini-link" href="skills/containers-cicd.html" aria-label="Explore containerization and Kubernetes operations"><b>Containerization &amp; Kubernetes Operations <span aria-hidden="true">↗</span></b><p>Docker, Podman, Kubernetes, Mirantis MKE and CI/CD workflows</p></a></div></div></div></section>
+<section id="skills"><div class="shell"><div class="section-kicker">02 / Technical skills</div><h2>Technology expertise.</h2><p class="section-lead">Technologies are grouped by area. Responsibilities and employer-specific context are documented in the experience section below.</p>
+<div class="skill-grid">
+<article class="tile"><h3>Data Engineering &amp; ETL</h3><p>Design, monitoring, reprocessing and operational support of data integration workflows.</p><div class="tags"><a class="tag skill-link" href="skills/data-engineering-etl.html#ibm-datastage" title="Explore IBM DataStage experience">IBM DataStage ↗</a><a class="tag skill-link" href="skills/data-engineering-etl.html#informatica-powercenter" title="Explore Informatica PowerCenter experience">Informatica PowerCenter ↗</a><a class="tag skill-link" href="skills/data-engineering-etl.html#etl" title="Explore ETL experience">ETL ↗</a><a class="tag skill-link" href="skills/data-engineering-etl.html#dwh" title="Explore DWH experience">DWH ↗</a></div><a class="area-link" href="skills/data-engineering-etl.html">Explore this area →</a></article>
+<article class="tile"><h3>Business Intelligence</h3><p>Repository development, reporting platform administration and access control.</p><div class="tags"><a class="tag skill-link" href="skills/business-intelligence.html#oracle-bi-obiee" title="Explore Oracle BI / OBIEE experience">Oracle BI / OBIEE ↗</a><a class="tag skill-link" href="skills/business-intelligence.html#bi-publisher" title="Explore BI Publisher experience">BI Publisher ↗</a><a class="tag skill-link" href="skills/business-intelligence.html#sap-businessobjects" title="Explore SAP BusinessObjects experience">SAP BusinessObjects ↗</a><a class="tag skill-link" href="skills/business-intelligence.html#power-bi" title="Explore Power BI experience">Power BI ↗</a></div><a class="area-link" href="skills/business-intelligence.html">Explore this area →</a></article>
+<article class="tile"><h3>Databases &amp; Data Quality</h3><p>Warehouse validation, SQL troubleshooting, controlled data corrections and reloads.</p><div class="tags"><a class="tag skill-link" href="skills/databases-data-quality.html#oracle-database" title="Explore Oracle Database experience">Oracle Database ↗</a><a class="tag skill-link" href="skills/databases-data-quality.html#sql" title="Explore SQL experience">SQL ↗</a><a class="tag skill-link" href="skills/databases-data-quality.html#sql-developer" title="Explore SQL Developer experience">SQL Developer ↗</a><a class="tag skill-link" href="skills/databases-data-quality.html#teradata" title="Explore Teradata experience">Teradata ↗</a></div><a class="area-link" href="skills/databases-data-quality.html">Explore this area →</a></article>
+<article class="tile"><h3>Linux &amp; Middleware</h3><p>Enterprise application services, infrastructure troubleshooting and configuration.</p><div class="tags"><a class="tag skill-link" href="skills/linux-middleware.html#red-hat-enterprise-linux" title="Explore Red Hat Enterprise Linux experience">Red Hat Enterprise Linux ↗</a><a class="tag skill-link" href="skills/linux-middleware.html#shell" title="Explore Shell experience">Shell ↗</a><a class="tag skill-link" href="skills/linux-middleware.html#cron" title="Explore cron experience">cron ↗</a><a class="tag skill-link" href="skills/linux-middleware.html#weblogic" title="Explore WebLogic experience">WebLogic ↗</a><a class="tag skill-link" href="skills/linux-middleware.html#active-directory" title="Explore Active Directory experience">Active Directory ↗</a></div><a class="area-link" href="skills/linux-middleware.html">Explore this area →</a></article>
+<article class="tile"><h3>Containers &amp; CI/CD</h3><p>Hands-on application deployments, runtime troubleshooting and deployment-plan configuration.</p><div class="tags"><a class="tag skill-link" href="skills/containers-cicd.html#docker" title="Explore Docker experience">Docker ↗</a><a class="tag skill-link" href="skills/containers-cicd.html#podman" title="Explore Podman experience">Podman ↗</a><a class="tag skill-link" href="skills/containers-cicd.html#kubernetes" title="Explore Kubernetes experience">Kubernetes ↗</a><a class="tag skill-link" href="skills/containers-cicd.html#mirantis-mke" title="Explore Mirantis MKE experience">Mirantis MKE ↗</a><a class="tag skill-link" href="skills/containers-cicd.html#bamboo" title="Explore Bamboo experience">Bamboo ↗</a><a class="tag skill-link" href="skills/containers-cicd.html#jenkins" title="Explore Jenkins experience">Jenkins ↗</a><a class="tag skill-link" href="skills/containers-cicd.html#artifactory" title="Explore Artifactory experience">Artifactory ↗</a><a class="tag skill-link" href="skills/containers-cicd.html#yaml" title="Explore YAML experience">YAML ↗</a><a class="tag skill-link" href="skills/containers-cicd.html#secrets" title="Explore Secrets experience">Secrets ↗</a></div><a class="area-link" href="skills/containers-cicd.html">Explore this area →</a></article>
+<article class="tile"><h3>Monitoring &amp; Reliability</h3><p>Application reliability, observability, incident response, recovery testing and SRE-related production practices.</p><div class="tags"><a class="tag skill-link" href="skills/production-operations.html#monitoring" title="Explore Splunk experience">Splunk ↗</a><a class="tag skill-link" href="skills/production-operations.html#monitoring" title="Explore Grafana experience">Grafana ↗</a><a class="tag skill-link" href="skills/production-operations.html#monitoring" title="Explore Prometheus experience">Prometheus ↗</a><a class="tag skill-link" href="skills/production-operations.html#monitoring" title="Explore AppDynamics experience">AppDynamics ↗</a><a class="tag skill-link" href="skills/production-operations.html#disaster-recovery" title="Explore DR / Failover experience">Disaster Recovery ↗</a><a class="tag skill-link" href="skills/production-operations.html#problem-management">SRE practices ↗</a></div><a class="area-link" href="skills/production-operations.html">Explore this area →</a></article>
+<article class="tile"><h3>Big Data Ecosystem</h3><p>Additional experience to be documented in dedicated technical case studies.</p><div class="tags"><a class="tag skill-link" href="skills/big-data.html#apache-spark" title="Explore Apache Spark experience">Apache Spark ↗</a><a class="tag skill-link" href="skills/big-data.html#hadoop" title="Explore Hadoop experience">Hadoop ↗</a><a class="tag skill-link" href="skills/big-data.html#cloudera" title="Explore Cloudera experience">Cloudera ↗</a></div><a class="area-link" href="skills/big-data.html">Explore this area →</a></article>
+<article class="tile"><h3>Enterprise IT Processes</h3><p>Controlled delivery and lifecycle support for applications in regulated environments.</p><div class="tags"><a class="tag skill-link" href="skills/enterprise-it-processes.html#change-management" title="Explore Change Management experience">Change Management ↗</a><a class="tag skill-link" href="skills/enterprise-it-processes.html#incident-management" title="Explore Incident Management experience">Incident Management ↗</a><a class="tag skill-link" href="skills/enterprise-it-processes.html#problem-management" title="Explore Problem Management experience">Problem Management ↗</a><a class="tag skill-link" href="skills/enterprise-it-processes.html#configuration-management" title="Explore Configuration Management experience">Configuration Management ↗</a></div><a class="area-link" href="skills/enterprise-it-processes.html">Explore this area →</a></article>
+<article class="tile"><h3>OpenShift Technologies</h3><p>Platform exposure listed in the CV; detailed responsibilities will be documented separately.</p><div class="tags"><a class="tag skill-link" href="skills/openshift.html#openshift-container-platform" title="Explore OpenShift Container Platform experience">OpenShift Container Platform ↗</a><a class="tag skill-link" href="skills/openshift.html#openshift-virtualization" title="Explore OpenShift Virtualization experience">OpenShift Virtualization ↗</a></div><a class="area-link" href="skills/openshift.html">Explore this area →</a></article>
+</div><div class="notice">Select any skill to see its dedicated detail section. Verified responsibilities are attributed to their actual employers; descriptions awaiting clarification are clearly marked.</div>
+</div></section>
+<section id="experience"><div class="shell"><div class="section-kicker">03 / Professional experience</div><h2>Experience, by employer.</h2><p class="section-lead">Each employer is documented separately. Assignments delivered for Nordea while employed by Luxoft are kept distinct from direct Nordea employment.</p>
+<article class="experience"><div class="exp-meta"><strong>Nordea Bank Abp</strong>May 2018 – 2026<br/>Gdańsk, Poland</div><div><h3>Expert IT Analyst · Enterprise Data &amp; BI Platforms</h3><p>Development, administration, deployment and operational support of banking BI, ETL and enterprise application platforms.</p><ul><li>Developed and maintained Oracle BI RPD repositories across Physical, Business Model and Mapping, and Presentation layers; deployed changes between environments.</li><li>Installed and configured clustered Oracle BI environments with load balancing and high-availability capabilities.</li><li>Designed and monitored IBM InfoSphere DataStage sequential and parallel jobs; validated warehouse data through Oracle SQL and supported controlled data reprocessing.</li><li>Supported a Java-based reporting application powered by BI Publisher and WebLogic, including data sources, user groups, privileges and Active Directory integration.</li><li>Performed RHEL application operations via SSH, including process and service checks, shell scripts, cron jobs and troubleshooting.</li><li>Supported releases, incidents, recurring problems, disaster recovery / failover tests and operational documentation in Confluence.</li></ul>
+<details class="expand"><summary>View Kubernetes &amp; CI/CD responsibilities</summary><ul><li>Operated Kubernetes workloads through Mirantis Kubernetes Engine: pod configuration, lifecycle actions, YAML changes, Secrets and runtime troubleshooting.</li><li>Created Bamboo deployment plans and tasks linked to scripts, and configured deployment-specific variables and settings.</li><li>Executed customized deployments, monitored execution step by step in Bamboo Deployment History, downloaded logs and investigated failed stages.</li><li>Worked with Artifactory-hosted images and verified deployments of updated workloads in Kubernetes.</li><li>Used Geneos, Splunk, Prometheus, Grafana and AppDynamics for monitoring and investigation.</li></ul></details>
+<div class="tags"><span class="tag">Oracle BI</span><span class="tag">DataStage</span><span class="tag">Oracle SQL</span><span class="tag">WebLogic</span><span class="tag">RHEL</span><span class="tag">Kubernetes / MKE</span><span class="tag">Bamboo</span><span class="tag">Artifactory</span></div><a class="experience-link" href="experience/nordea.html">Explore full Nordea experience →</a></div></article>
+<article class="experience"><div class="exp-meta"><strong>Luxoft Poland</strong>Feb 2016 – May 2018<br/>Nordea engagement</div><div><h3>Expert IT Developer</h3><p>Enterprise BI and ETL work on a Nordea engagement while employed by Luxoft. Kept as a separate employment entry.</p><div class="tags"><span class="tag">Oracle Business Intelligence</span><span class="tag">IBM InfoSphere DataStage</span></div></div></article>
+<article class="experience"><div class="exp-meta"><strong>Sberbank</strong>Aug 2013 – Dec 2015</div><div><h3>Datawarehouse Leading Expert</h3><p>Worked with enterprise Data Warehouse and ETL platforms, including Teradata, Informatica PowerCenter 9.5.1 and Oracle BI.</p><div class="tags"><span class="tag">Teradata</span><span class="tag">Informatica PowerCenter</span><span class="tag">Oracle BI</span></div></div></article>
+<article class="experience"><div class="exp-meta"><strong>Alfa-Bank Ukraine</strong>Nov 2010 – Aug 2013</div><div><h3>Datawarehouse Leading Expert</h3><p>ETL and BI platform engineering, including administration, configuration, tuning, reporting, scheduling and recovery preparation.</p><ul><li>Installed, configured and tuned Informatica PowerCenter 8.6.1; created mappings, workflows, sessions and monitored execution.</li><li>Administered SAP BusinessObjects and Oracle BI platforms, including user permissions, reporting and repository maintenance.</li><li>Created server-side scripts, scheduling and backup workflows; worked on disaster recovery procedures.</li></ul><div class="tags"><span class="tag">Informatica</span><span class="tag">SAP BusinessObjects</span><span class="tag">Oracle BI</span><span class="tag">Shell scripting</span><span class="tag">DR</span></div></div></article>
+<article class="experience"><div class="exp-meta"><strong>Sitronics IT Ukraine</strong>May 2007 – Nov 2010</div><div><h3>Lead Technical Support Engineer</h3><p>Supported telecom IT systems and infrastructure operations, including HP-IUM, Oracle Database monitoring, software and hardware change requests, and disaster recovery coordination.</p><div class="tags"><span class="tag">Technical Support</span><span class="tag">Oracle DB Monitoring</span><span class="tag">HP-IUM</span><span class="tag">StarTeam</span></div></div></article>
+<article class="experience"><div class="exp-meta"><strong>Kvazar-Micro Ukraine</strong>Earlier career</div><div><h3>Configuration Manager</h3><p>Supported the MTS billing-platform migration engagement, including change control, project repositories, configuration records, incident and defect tracking, and vendor coordination.</p><div class="tags"><span class="tag">StarTeam</span><span class="tag">SVN</span><span class="tag">CMDB</span><span class="tag">Change Management</span></div></div></article>
+<article class="experience"><div class="exp-meta"><strong>Vodafone / MTS Ukraine</strong>Dec 2003 – Apr 2007</div><div><h3>Configuration Manager</h3><p>Contributed to a prepaid billing-platform migration through change tracking, configuration control, document management, project reporting and coordination across technical teams and vendors.</p><div class="tags"><span class="tag">Configuration Management</span><span class="tag">Billing Migration</span><span class="tag">Change Tracking</span></div></div></article>
+<article class="experience"><div class="exp-meta"><strong>Ukrainian Mobile Communications</strong>Earlier career</div><div><h3>Customer Service Representative</h3><p>Provided customer support, technical guidance and service assistance, including operational decision-making during night shifts.</p></div></article>
+</div></section>
+<section id="projects"><div class="shell"><div class="section-kicker">04 / Projects &amp; case studies</div><h2>Selected engineering work.</h2><p class="section-lead">These are descriptions of confirmed technical responsibilities, not claims of quantified project outcomes. Detailed anonymized case studies will follow.</p>
+<div class="case-grid">
+<article class="case"><small>Nordea · CI/CD &amp; Kubernetes</small><h3>Enterprise deployment execution and troubleshooting</h3><p>Created Bamboo deployment plans and script-linked tasks, configured variables, ran customized releases and examined execution history and logs. Supported workloads, YAML and Secrets in Mirantis Kubernetes Engine, including troubleshooting after deployment.</p><div class="tags"><span class="tag">Bamboo</span><span class="tag">Artifactory</span><span class="tag">MKE</span><span class="tag">Kubernetes</span></div><div class="context">Focus: repeatable application delivery and release troubleshooting</div></article>
+<article class="case"><small>Nordea · BI platform</small><h3>Oracle BI repository and platform operations</h3><p>Maintained RPD repository layers, deployed changes across environments, configured clustered deployments and supported roles, access, load balancing and platform availability.</p><div class="tags"><span class="tag">OBIEE</span><span class="tag">RPD</span><span class="tag">Clustering</span><span class="tag">HA</span></div><div class="context">Focus: enterprise reporting platform lifecycle</div></article>
+<article class="case"><small>Nordea · ETL &amp; data quality</small><h3>ETL monitoring and warehouse data validation</h3><p>Designed and monitored DataStage jobs, investigated failed or inconsistent loads, verified records using SQL Developer and supported data reprocessing or controlled corrections when required.</p><div class="tags"><span class="tag">DataStage</span><span class="tag">Oracle SQL</span><span class="tag">DWH</span></div><div class="context">Focus: reliable delivery of trusted warehouse data</div></article>
+<article class="case"><small>Alfa-Bank · ETL &amp; BI</small><h3>Data integration platform engineering</h3><p>Configured and tuned Informatica PowerCenter, developed ETL mappings and workflows, maintained scheduled integration processes and supported SAP BusinessObjects and Oracle BI reporting platforms.</p><div class="tags"><span class="tag">Informatica</span><span class="tag">BusinessObjects</span><span class="tag">Oracle BI</span></div><div class="context">Focus: end-to-end ETL and BI operations</div></article>
+</div>
+</div></section>
+<section id="learning"><div class="shell"><div class="section-kicker">05 / Certifications &amp; learning</div><h2>Continuous professional development.</h2><p class="section-lead">Technical development across enterprise infrastructure, container platforms and deployment automation. Verified certifications will be published here individually.</p>
+<div class="learning-grid"><article class="tile"><h3>Container platforms</h3><p>Continuing technical development in Kubernetes, Red Hat OpenShift and OpenShift Virtualization, building on enterprise application and infrastructure experience.</p><div class="tags"><span class="tag">OpenShift</span><span class="tag">Virtualization</span><span class="tag">Kubernetes</span></div></article><article class="tile"><h3>DevOps engineering</h3><p>Structured learning focused on version control, configuration-as-code, deployment automation and infrastructure tooling.</p><div class="tags"><span class="tag">Git</span><span class="tag">YAML</span><span class="tag">Automation</span></div></article></div>
+</div></section>
+<section id="contact"><div class="shell"><div class="contact-wrap">
+<div class="contact-header"><div class="section-kicker">06 / Contact &amp; résumé</div><h2>Let's connect.</h2><p>Based in Gdańsk, Poland. Open to remote-first B2B and contract opportunities across enterprise applications, data platforms, infrastructure and production operations.</p></div>
+<div class="contact-grid">
+<a aria-label="Email Ihor Honcharuk" class="contact-item" href="mailto:ihor.honcharuk1980@gmail.com"><span aria-hidden="true" class="contact-symbol">✉</span><span><span class="contact-label">Email</span><span class="contact-value">ihor.honcharuk1980@gmail.com</span></span></a>
+<a aria-label="Call Ihor Honcharuk" class="contact-item" href="tel:+48729423296"><span aria-hidden="true" class="contact-symbol">☎</span><span><span class="contact-label">Phone</span><span class="contact-value">+48 729 423 296</span></span></a>
+<a class="contact-item" href="https://www.linkedin.com/in/ihor-honcharuk-6240036/" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="contact-symbol">in</span><span><span class="contact-label">LinkedIn</span><span class="contact-value">Professional profile ↗</span></span></a>
+<a class="contact-item" href="https://github.com/ihorhoncharuk" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="contact-symbol">&lt;/&gt;</span><span><span class="contact-label">GitHub</span><span class="contact-value">Projects &amp; code ↗</span></span></a>
+<a aria-label="Download Ihor Honcharuk résumé in PDF format" class="contact-item" href="assets/Ihor_Honcharuk_CV_EN.pdf" download="Ihor_Honcharuk_CV_EN.pdf"><span aria-hidden="true" class="cv-icon"><img src="assets/icons/cv-document.svg" alt=""/></span><span><span class="contact-label">Download Résumé</span><span class="contact-value">English PDF · Download ↓</span></span></a>
+</div>
+<div class="messenger-title">Message me directly</div>
+<div class="messenger-list">
+<a aria-label="Message me via WhatsApp" class="messenger-btn" href="https://wa.me/48729423296" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="brand-icon brand-whatsapp"><img src="assets/icons/whatsapp.svg" alt=""/></span>WhatsApp ↗</a>
+<a aria-label="Open Viber chat; requires Viber app" class="messenger-btn" href="viber://chat?number=%2B48729423296"><span aria-hidden="true" class="brand-icon brand-viber"><img src="assets/icons/viber.svg" alt=""/></span>Viber ↗</a>
+<a aria-label="Open Facebook Messenger chat" class="messenger-btn" href="https://m.me/igor.goncharuk.50" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="brand-icon brand-messenger"><img src="assets/icons/messenger.svg" alt=""/></span>Messenger ↗</a>
+<a aria-label="Open Telegram contact" class="messenger-btn" href="https://t.me/+48729423296" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="brand-icon brand-telegram"><img src="assets/icons/telegram.svg" alt=""/></span>Telegram ↗</a>
+<a aria-label="Open Signal contact" class="messenger-btn" href="https://signal.me/#p/+48729423296" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="brand-icon brand-signal"><img src="assets/icons/signal.svg" alt=""/></span>Signal ↗</a>
+</div>
+<p class="contact-note">WhatsApp, Telegram and Signal links use the listed phone number. Telegram requires phone-number discoverability; Signal availability depends on account privacy settings. Viber uses an app link and its behavior varies by device. Messenger opens via your Facebook username; confirm its behavior on your phone.</p>
+</div></div></section>
+</main>
+<footer><div class="shell foot-row"><span>© <span id="year">2026</span> Ihor Honcharuk · Gdańsk, Poland</span><span><a href="#home">Back to top ↑</a>  ·  <a href="https://github.com/ihorhoncharuk" rel="noopener noreferrer" target="_blank">GitHub</a></span></div></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
